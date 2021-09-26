@@ -380,6 +380,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadActionPerformed
         // TODO add your handling code here:
+        // need file dialog to search/select file to be uploaded --> location
         JFrame fr = new JFrame();
         FileDialog fd = new FileDialog(fr, "Open", FileDialog.LOAD); // to open the file dialog box
         fd.show();
@@ -413,10 +414,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         product.setLinkedIn(txtLinkedIn.getText());
         product.setIpAdd(txtIPAdd.getText());
         product.setId(txtID.getText());
-        
-        // add data validation  
-        
-        //date validation
+
         
         // dob, phone, email, ssn, fax
         if (product.validateDate(txtDOB.getText()) && product.validatePhone(txtPhoneNo.getText())&& product.validateEmail(txtEmail.getText())){ //product.validateSsn(txtSSN.getText()) ){
@@ -426,7 +424,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         else{
             JOptionPane.showMessageDialog(this,"Please check the data you have entered! Incorrect format!");
         }
-        //JOptionPane.showMessageDialog(this,"Profile saved!");
         
     }//GEN-LAST:event_btnSaveActionPerformed
 

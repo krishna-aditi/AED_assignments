@@ -303,7 +303,6 @@ public class ViewJPanel extends javax.swing.JPanel {
 
     private void txtDOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDOBActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_txtDOBActionPerformed
 
     private void txtFaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFaxActionPerformed
@@ -365,6 +364,7 @@ public class ViewJPanel extends javax.swing.JPanel {
 
     private void displayProduct() {
         // "get" attribute value from product object, "set" to the appropriate text field 
+        // capitalize if text entered in lowercase by user
         txtName.setText(product.getName());
         txtGeoData.setText(product.getGeoData());
         txtDOB.setText(product.getDob());
@@ -372,15 +372,15 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtFax.setText(product.getFax());
         txtEmail.setText(product.getEmail());
         txtSSN.setText(product.getSsn());
-        txtMedNo.setText(product.getMedNo());
-        txtHealthNo.setText(product.getHealthNo());
+        txtMedNo.setText(product.getMedNo().toUpperCase()); 
+        txtHealthNo.setText(product.getHealthNo().toUpperCase());
         txtBankAccNo.setText(product.getBankAccNo());
-        txtLicnNo.setText(product.getLicnNo());
-        txtVehicleNo.setText(product.getVehicleNo());
-        txtDeviceNo.setText(product.getDeviceNo());
+        txtLicnNo.setText(product.getLicnNo().toUpperCase());
+        txtVehicleNo.setText(product.getVehicleNo().toUpperCase());
+        txtDeviceNo.setText(product.getDeviceNo().toUpperCase());
         txtLinkedIn.setText(product.getLinkedIn());
         txtIPAdd.setText(product.getIpAdd());
-        txtID.setText(product.getId());
+        txtID.setText(product.getId().toUpperCase());
         txtLocation.setText(product.getLocation());
         // "get" image, "set" to image label
         ImageIcon image = new ImageIcon(product.getLocation(), null); 
