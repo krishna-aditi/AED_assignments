@@ -169,7 +169,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManageRestManagersActionPerformed
 
     private void btnManageDeliveryMenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDeliveryMenActionPerformed
-       
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add("ManageDeliveryMenJPanel", new ManageDeliveryMenJPanel(userProcessContainer, userAccount));
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageDeliveryMenActionPerformed
 
     private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
