@@ -19,23 +19,24 @@ import java.util.ArrayList;
  */
 public class EcoSystem extends Organization{
     
-    private static EcoSystem business;
-    private RestaurantDirectory restaurantDirectory;
-    private CustomerDirectory customerDirectory;
-    private DeliveryManDirectory deliveryManDirectory;
+    private static EcoSystem ecosystem;
+    //private RestaurantDirectory restaurantDirectory;
+    //private CustomerDirectory customerDirectory;
+    //private DeliveryManDirectory deliveryManDirectory;
+    private OrganizationDirectory organizationDirectory;;
 
-    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
+    /**public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
 
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
-    }
+    }**/
     
     public static EcoSystem getInstance(){
-        if(business==null){
-            business=new EcoSystem();
+        if(ecosystem==null){
+            ecosystem=new EcoSystem();
         }
-        return business;
+        return ecosystem;
     }
     
     @Override
@@ -44,10 +45,10 @@ public class EcoSystem extends Organization{
         roleList.add(new SystemAdminRole());
         return roleList;
     }
+    
     private EcoSystem(){
         super(null);
     }
-
     
     public boolean checkIfUserIsUnique(String userName){
        if(!this.getUserAccountDirectory().checkIfUsernameIsUnique(userName)){
@@ -57,4 +58,9 @@ public class EcoSystem extends Organization{
            return true;
        }
     }
+
+    public OrganizationDirectory getOrganizationDirectory() {
+        return organizationDirectory;
+    }
+    
 }

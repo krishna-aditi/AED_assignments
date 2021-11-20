@@ -27,6 +27,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem ecosystem;
     private UserAccount userAccount;
+    private Organization org;
     public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
@@ -35,9 +36,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         populateTree();
     }
 
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem system, UserAccount account) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public void populateTree(){
         DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
@@ -60,10 +58,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jTree = new javax.swing.JTree();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnManageCustomers = new javax.swing.JButton();
-        btnManageRestManagers = new javax.swing.JButton();
-        btnManageDeliveryMen = new javax.swing.JButton();
-        btnManageRestaurants = new javax.swing.JButton();
+        btnManageUserAccount = new javax.swing.JButton();
+        btnManageDirectory = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -96,31 +92,17 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Welcome to the admin page of BellyUp!");
 
-        btnManageCustomers.setText("Manage All Customers");
-        btnManageCustomers.addActionListener(new java.awt.event.ActionListener() {
+        btnManageUserAccount.setText("Manage User Accounts");
+        btnManageUserAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageCustomersActionPerformed(evt);
+                btnManageUserAccountActionPerformed(evt);
             }
         });
 
-        btnManageRestManagers.setText("Manage Restaurant Managers");
-        btnManageRestManagers.addActionListener(new java.awt.event.ActionListener() {
+        btnManageDirectory.setText("Manage Directory");
+        btnManageDirectory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageRestManagersActionPerformed(evt);
-            }
-        });
-
-        btnManageDeliveryMen.setText("Manage Deliveryman");
-        btnManageDeliveryMen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageDeliveryMenActionPerformed(evt);
-            }
-        });
-
-        btnManageRestaurants.setText("Manage Restaurants");
-        btnManageRestaurants.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageRestaurantsActionPerformed(evt);
+                btnManageDirectoryActionPerformed(evt);
             }
         });
 
@@ -132,25 +114,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(182, 182, 182)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnManageDeliveryMen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageRestManagers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageCustomers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageRestaurants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(186, Short.MAX_VALUE))
+                    .addComponent(btnManageUserAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageDirectory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(48, 48, 48)
-                .addComponent(btnManageRestaurants)
+                .addGap(89, 89, 89)
+                .addComponent(btnManageUserAccount)
                 .addGap(18, 18, 18)
-                .addComponent(btnManageRestManagers)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageCustomers)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageDeliveryMen)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addComponent(btnManageDirectory)
+                .addContainerGap(225, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -158,44 +134,31 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageCustomersActionPerformed
-       
-    }//GEN-LAST:event_btnManageCustomersActionPerformed
-
-    private void btnManageRestManagersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRestManagersActionPerformed
+    private void btnManageDirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDirectoryActionPerformed
+        // TODO add your handling code here:
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("ManageRestaurantManagersJPanel", new ManageRestaurantManagersJPanel(userProcessContainer, userAccount));
+        userProcessContainer.add("ManageDirectoryJPanel", new ManageDirectoryJPanel(userProcessContainer, ecosystem.getOrganizationDirectory(), userAccount));
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManageRestManagersActionPerformed
+    }//GEN-LAST:event_btnManageDirectoryActionPerformed
 
-    private void btnManageDeliveryMenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDeliveryMenActionPerformed
+    private void btnManageUserAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageUserAccountActionPerformed
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("ManageDeliveryMenJPanel", new ManageDeliveryMenJPanel(userProcessContainer, userAccount));
+        userProcessContainer.add("ManageUserAccountJPanel", new ManageUserAccountJPanel(userProcessContainer, ecosystem, userAccount));
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManageDeliveryMenActionPerformed
+    }//GEN-LAST:event_btnManageUserAccountActionPerformed
 
     private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
-        
+
         /**DefaultMutableTreeNode selectedNode= (DefaultMutableTreeNode)jTree.getLastSelectedPathComponent();
         if(selectedNode!=null){
             lblSelectedNode.setText(selectedNode.toString());
         }**/
     }//GEN-LAST:event_jTreeValueChanged
 
-    private void btnManageRestaurantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRestaurantsActionPerformed
-        // TODO add your handling code here:
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("ManageRestaurantsJPanel", new ManageRestaurantsJPanel(userProcessContainer, userAccount));
-        layout.next(userProcessContainer);
-        
-    }//GEN-LAST:event_btnManageRestaurantsActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnManageCustomers;
-    private javax.swing.JButton btnManageDeliveryMen;
-    private javax.swing.JButton btnManageRestManagers;
-    private javax.swing.JButton btnManageRestaurants;
+    private javax.swing.JButton btnManageDirectory;
+    private javax.swing.JButton btnManageUserAccount;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

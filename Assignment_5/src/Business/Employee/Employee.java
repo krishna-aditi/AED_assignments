@@ -10,7 +10,7 @@ package Business.Employee;
  */
 public class Employee {
     
-    private String name;
+    private String empname;
     private int id;
     private static int count = 1;
 
@@ -23,18 +23,18 @@ public class Employee {
         return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmpname(String name) {
+        this.empname = name;
     }
 
     
-    public String getName() {
-        return name;
+    public String getEmpName() {
+        return empname;
     }
 
     @Override
     public String toString() {
-        return name;
+        return empname;
     }
     
     

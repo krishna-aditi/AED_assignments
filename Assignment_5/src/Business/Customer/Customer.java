@@ -5,17 +5,24 @@
  */
 package Business.Customer;
 
+import Business.Organization;
+import Business.Role.CustomerRole;
+import Business.Role.Role;
+import java.util.ArrayList;
+
 /**
  *
  * @author harold
  */
-public class Customer {
+public class Customer extends Organization{
     
     private String custname;
+    private String password; 
     private int custid;
     private static int count = 1;
     
     public Customer(){
+        super(Organization.Type.Customer.getValue());
         custid = count;
         count++;
     }
@@ -28,6 +35,15 @@ public class Customer {
         this.custname = custname;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    
     public int getCustid() {
         return custid;
     }
@@ -39,6 +55,13 @@ public class Customer {
     @Override
     public String toString() {
         return custname;
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> roles = new ArrayList<>();
+        roles.add(new CustomerRole());
+        return roles;
     }
     
 }

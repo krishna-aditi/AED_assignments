@@ -5,16 +5,23 @@
  */
 package Business.DeliveryMan;
 
+import Business.Organization;
+import Business.Role.DeliverManRole;
+import Business.Role.Role;
+import java.util.ArrayList;
+
 /**
  *
  * @author harold
  */
-public class DeliveryMan {
+public class DeliveryMan extends Organization{
     private String name;
+    private String password;
     private int id;
     private static int count = 1;
     
     public DeliveryMan(){
+        super(Organization.Type.DeliveryMan.getValue());
         id = count;
         count++;
     }
@@ -27,6 +34,15 @@ public class DeliveryMan {
         this.name = name;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    
     public int getId() {
         return id;
     }
@@ -38,6 +54,13 @@ public class DeliveryMan {
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> roles = new ArrayList<>();
+        roles.add(new DeliverManRole());
+        return roles;
     }
     
     

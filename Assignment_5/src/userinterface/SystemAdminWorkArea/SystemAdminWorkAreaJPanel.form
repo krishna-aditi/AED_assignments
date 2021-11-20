@@ -88,12 +88,10 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnManageDeliveryMen" max="32767" attributes="0"/>
-                          <Component id="btnManageRestManagers" max="32767" attributes="0"/>
-                          <Component id="btnManageCustomers" max="32767" attributes="0"/>
-                          <Component id="btnManageRestaurants" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnManageUserAccount" max="32767" attributes="0"/>
+                          <Component id="btnManageDirectory" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="186" max="32767" attributes="0"/>
+                      <EmptySpace pref="279" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -101,15 +99,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="btnManageRestaurants" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                      <Component id="btnManageUserAccount" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnManageRestManagers" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnManageCustomers" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnManageDeliveryMen" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="184" max="32767" attributes="0"/>
+                      <Component id="btnManageDirectory" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="225" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -124,36 +118,20 @@
                 <Property name="text" type="java.lang.String" value="Welcome to the admin page of BellyUp!"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageCustomers">
+            <Component class="javax.swing.JButton" name="btnManageUserAccount">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage All Customers"/>
+                <Property name="text" type="java.lang.String" value="Manage User Accounts"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageCustomersActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageUserAccountActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageRestManagers">
+            <Component class="javax.swing.JButton" name="btnManageDirectory">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Restaurant Managers"/>
+                <Property name="text" type="java.lang.String" value="Manage Directory"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageRestManagersActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnManageDeliveryMen">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Deliveryman"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageDeliveryMenActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnManageRestaurants">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Restaurants"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageRestaurantsActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageDirectoryActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

@@ -4,6 +4,14 @@
  */
 package userinterface.RestaurantAdminRole;
 
+import Business.Restaurant.Menu;
+import Business.Restaurant.Restaurant;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author krish
@@ -13,8 +21,17 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageMenuJPanel
      */
-    public ManageMenuJPanel() {
+    private JPanel userProcessContainer;
+    private UserAccount userAccount;
+    private Restaurant restaurant;
+    
+    
+    public ManageMenuJPanel(JPanel userProcessContainer, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        restaurant = new Restaurant();
+        populateMenuTable();
     }
 
     /**
@@ -149,10 +166,11 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         String price = txtPrice.getText();
 
         if( !item.isEmpty() && !price.isEmpty() ){
-            Restaurant restaurant = restaurantDir.createRestaurant(resName);
-            restaurant.setAddress(resAddress);
+            Menu menu = restaurant.addItem(item);
+            menu.setItemPrice(price);
+            
 
-            JOptionPane.showMessageDialog(this, "Restaurant added successfully!");
+            JOptionPane.showMessageDialog(this, "Menu added successfully!");
         }
         else{
             JOptionPane.showMessageDialog(this, "Please fill out all fields!");
@@ -161,24 +179,24 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         txtItem.setText("");
         txtPrice.setText("");
 
-        populateRestaurantTable();
+        populateMenuTable();
     }//GEN-LAST:event_btnCreateRestaurantActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = tbMenu.getSelectedRow();
         if(selectedRowIndex < 0){
-            JOptionPane.showMessageDialog(this, "Please select a restaurant to delete!");
+            JOptionPane.showMessageDialog(this, "Please select a menu to delete!");
             return;
         }
         DefaultTableModel deleteModel = (DefaultTableModel) tbMenu.getModel();
-        Restaurant selectedRestaurant = (Restaurant) deleteModel.getValueAt(selectedRowIndex, 0); // typecasting to Patient class type
+        Menu selectedMenu = (Menu) deleteModel.getValueAt(selectedRowIndex, 0); // typecasting to Patient class type
         // at the 0th column we have the whole object stored
 
-        restaurantDir.removeRestaurant(selectedRestaurant);
-        JOptionPane.showMessageDialog(this, "Restaurant deleted!");
+        restaurant.removeItem(selectedMenu);
+        JOptionPane.showMessageDialog(this, "Menu deleted!");
 
-        populateRestaurantTable(); // refreshing table after deletion
+        populateMenuTable(); // refreshing table after deletion
 
         txtItem.setText("");
         txtPrice.setText("");
@@ -188,17 +206,17 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRowIndex = tbMenu.getSelectedRow();
         if(selectedRowIndex < 0){
-            JOptionPane.showMessageDialog(this, "Please select a restaurant to update!");
+            JOptionPane.showMessageDialog(this, "Please select a menu to update!");
             return;
         }
         DefaultTableModel updateModel = (DefaultTableModel) tbMenu.getModel();
-        Restaurant selectedRes = (Restaurant)updateModel.getValueAt(selectedRowIndex, 0); // typecasting to Patient class type
+        Menu selectedItem = (Menu)updateModel.getValueAt(selectedRowIndex, 0); // typecasting to Patient class type
 
-        selectedRes.setRestaurantName(txtItem.getText());
-        selectedRes.setAddress(txtPrice.getText());
+        selectedItem.setItemName(txtItem.getText());
+        selectedItem.setItemPrice(txtPrice.getText());
 
         JOptionPane.showMessageDialog(this, "Restaurant details updated!");
-        populateRestaurantTable();
+        populateMenuTable();
 
         txtItem.setText("");
         txtPrice.setText("");
@@ -206,7 +224,6 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
@@ -226,4 +243,18 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtItem;
     private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
+
+    private void populateMenuTable() {
+        DefaultTableModel menuModel = (DefaultTableModel) tbMenu.getModel(); // typecasting into DefaultTableModel class type
+        menuModel.setRowCount(0);
+        
+        for( Menu menuAdded: restaurant.getMenuItemList()){
+            
+            Object[] row = new Object[2];
+            row[0] = menuAdded;
+            row[1] = menuAdded.getItemPrice();
+            
+            menuModel.addRow(row);
+        }
+    }
 }

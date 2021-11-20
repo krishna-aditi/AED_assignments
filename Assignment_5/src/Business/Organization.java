@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public abstract class Organization {
 
-    private String name;
+    private String OrgName;
     private WorkQueue workQueue;
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
@@ -24,9 +24,9 @@ public abstract class Organization {
     private static int counter=0;
     
     public enum Type{
-        RestaurantAdmin("RestaurantAdmin"),
-        Customer("Customer"),
-        DeliveryMan("Delivery"),
+        RestaurantAdmin("Restaurant Employee Directory"),
+        Customer("Customer Directory"),
+        DeliveryMan("Delivery Man Directory"),
         SysAdmin("Sysadmin");
         
         private String value;
@@ -39,16 +39,16 @@ public abstract class Organization {
     }
 
     public Organization(String name) {
-        this.name = name;
+        this.OrgName = name;
         workQueue = new WorkQueue();
         employeeDirectory = new EmployeeDirectory();
         userAccountDirectory = new UserAccountDirectory();
         organizationID = counter;
         ++counter;
     }
-    public Organization(){
+    //public Organization(){
         
-    }
+    //}
     public abstract ArrayList<Role> getSupportedRole();
     
     public UserAccountDirectory getUserAccountDirectory() {
@@ -63,16 +63,16 @@ public abstract class Organization {
         return employeeDirectory;
     }
     
-    public String getName() {
-        return name;
+    public String getOrgName() {
+        return OrgName;
     }
 
     public WorkQueue getWorkQueue() {
         return workQueue;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setOrgName(String name) {
+        this.OrgName = name;
     }
 
     public void setWorkQueue(WorkQueue workQueue) {
@@ -81,7 +81,7 @@ public abstract class Organization {
 
     @Override
     public String toString() {
-        return name;
+        return OrgName;
     }
     
     
