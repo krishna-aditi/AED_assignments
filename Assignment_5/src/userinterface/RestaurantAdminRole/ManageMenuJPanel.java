@@ -55,6 +55,8 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         tbMenu = new javax.swing.JTable();
         lblName = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 153));
+
         lblAddress.setText("Price:");
 
         btnCreateRestaurant.setText("Create");
@@ -113,7 +115,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -131,7 +133,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
                                     .addComponent(txtPrice)
                                     .addComponent(btnCreateRestaurant, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 198, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -154,7 +156,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
                 .addComponent(btnDelete)
                 .addGap(18, 18, 18)
                 .addComponent(btnUpdate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addContainerGap())
         );

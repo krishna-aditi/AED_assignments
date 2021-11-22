@@ -82,7 +82,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, 100, -1));
 
         processJButton.setText("Process Order");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +133,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblWorkRequests);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 80, 550, 80));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 550, 80));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed

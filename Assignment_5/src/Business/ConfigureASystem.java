@@ -11,6 +11,7 @@ import Business.UserAccount.UserAccount;
  *
  * @author rrheg
  */
+
 public class ConfigureASystem {
     
     public static EcoSystem configure(){
@@ -58,7 +59,6 @@ public class ConfigureASystem {
         ecosystem.getEmployeeDirectory().getEmployeeList().add(employee);
         ecosystem.getUserAccountDirectory().getUserAccountList().add(account);
                
-        
         return ecosystem;
     }
     
